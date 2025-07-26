@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Notification Bell</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style>
+      body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #030c0c, #8fc6ea);
+            padding-top: 60px;
+        }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-dark px-3">
+    <a class="navbar-brand text-white">Notifications</a>
+    <div>
+      <button class="btn btn-link position-relative text-white" id="notificationBtn" data-bs-toggle="modal" data-bs-target="#notificationModal">
+        <i class="bi bi-bell" style="font-size: 1.5rem;"></i>
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="badgeCount">
+          0
+        </span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="container my-4">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Notification Modal -->
+  <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="notificationModalLabel">Your Notifications</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body" id="notificationList">
+          <!-- JS will populate this -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
