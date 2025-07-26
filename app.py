@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify
-from models import db, Notification
+from model import db, Notification
 import os
 
 app = Flask(__name__)
